@@ -15,6 +15,6 @@
         }
     },
     "include": [
-        "ts-clinica-webapi/src/**/*"
+        "src/**/*"
     ]
 }
