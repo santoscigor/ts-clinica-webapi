@@ -34,7 +34,7 @@ export const register = ( app: express.Application ) => {
             //         total: +data.total
             //     };
             // } );
-            return res.json( { text: "all" } );
+            // return res.json( total );
         } catch ( err ) {
             // tslint:disable-next-line:no-console
             console.error(err);

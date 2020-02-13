@@ -7,7 +7,7 @@ const porta = 8080;
 fs.readFile("./data.json", "utf8", (err, data) => {
     if(err){
         // tslint:disable-next-line:no-console
-        return console.log("Erro ao ler arquivo");
+        return console.log("Erro ao ler arquivo!");
     }
 
     const jsonData = JSON.parse(data);
@@ -18,7 +18,7 @@ app.get( "/", ( req, res ) => {
         title: "TS-CLINICA-WEBAPI",
         version: "1.0.0"
     });
-    res.status(400).send( "Oi! Houve um erro ^^" );
+    res.status(400).send( "Oi! Houve um erro com a API ^^'" );
 } );
 
 app.listen( porta, () => {
