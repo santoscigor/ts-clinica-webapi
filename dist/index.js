@@ -4,25 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const fs_1 = __importDefault(require("fs"));
+const shift_1 = __importDefault(require("./routes/shift"));
+const db_1 = require("./services/db");
+db_1.db.checkDb();
 const app = express_1.default();
-const porta = 8080;
-fs_1.default.readFile("./data.json", "utf8", (err, data) => {
-    if (err) {
-        // tslint:disable-next-line:no-console
-        return console.log("Erro ao ler arquivo!");
-    }
-    const jsonData = JSON.parse(data);
-});
-app.get("/", (req, res) => {
-    res.status(200).send({
-        title: "TS-CLINICA-WEBAPI",
-        version: "1.0.0"
-    });
-    res.status(400).send("Oi! Houve um erro com a API ^^'");
-});
-app.listen(porta, () => {
-    // tslint:disable-next-line:no-console
-    console.log(`servidor iniciado em: http://localhost:${porta}`);
+const port = process.env.PORT || 8080;
+app.use(express_1.default.json());
+app.use("/shifts", shift_1.default);
+app.listen(port, () => {
+    console.log(`Listening on http://localhost:${port}`);
 });
 //# sourceMappingURL=index.js.map
