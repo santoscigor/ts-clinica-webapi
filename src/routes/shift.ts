@@ -28,8 +28,6 @@ router.get("/search", async (req, res) => {
   }
 });
 
-router.get("/");
-
 router.post("/", async (req, res) => {
   try {
     const { dateInfo, intervals, type } = req.body;
